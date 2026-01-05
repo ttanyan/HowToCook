@@ -1,3 +1,63 @@
+# How To Cook
+
+[![Build and Push Multi-Arch Docker Image](https://github.com/Anduin2017/HowToCook/actions/workflows/docker.yml/badge.svg)](https://github.com/Anduin2017/HowToCook/actions/workflows/docker.yml)
+
+这是一个教你做菜的项目，包含各种菜谱和烹饪指南。
+
+## 本地启动方式
+
+推荐使用 Docker 启动：
+
+```bash
+docker pull ghcr.io/anduin2017/how-to-cook:latest && docker run -d -p 5000:80 ghcr.io/anduin2017/how-to-cook:latest
+```
+
+访问 http://localhost:5000
+
+## Docker 镜像
+
+我们提供多架构 Docker 镜像，支持 AMD64 和 ARM64 架构。
+
+### 使用预构建镜像
+
+```bash
+# 拉取最新镜像
+docker pull ghcr.io/anduin2017/how-to-cook:latest
+
+# 运行容器
+docker run -d -p 5000:80 ghcr.io/anduin2017/how-to-cook:latest
+```
+
+### 多架构支持
+
+我们的 Docker 镜像是多架构的，支持以下平台：
+- linux/amd64 (x86_64)
+- linux/arm64 (ARM64)
+
+## CI/CD 构建
+
+我们使用 GitHub Actions 自动构建多架构 Docker 镜像。构建配置位于 `.github/workflows/docker.yml`。
+
+构建命令（在 CI/CD 中使用）：
+```bash
+docker buildx build --platform linux/amd64,linux/arm64 -t how-to-cook:latest --push .
+```
+
+## 开发
+
+### 本地构建 Docker 镜像
+
+```bash
+# 构建 AMD64 镜像
+docker buildx build --platform linux/amd64 -t how-to-cook:amd64 .
+
+# 构建 ARM64 镜像
+docker buildx build --platform linux/arm64 -t how-to-cook:arm64 .
+
+# 构建多架构镜像并推送到仓库
+docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/anduin2017/how-to-cook:latest --push .
+```
+
 # 程序员做饭指南
 
 ## 搭建环境
