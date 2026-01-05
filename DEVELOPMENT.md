@@ -2,7 +2,7 @@
 
 ## 多架构 Docker 镜像构建
 
-### 使用 GitHub Actions (推荐)
+### 使用 GitHub Actions （推荐）
 
 项目配置了 GitHub Actions 自动构建多架构镜像，位于 `.github/workflows/docker.yml`。
 
