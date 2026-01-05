@@ -9,7 +9,7 @@
 工作流特性：
 - 自动构建支持 linux/amd64 和 linux/arm64 平台的镜像
 - 自动推送到 GitHub Container Registry (ghcr.io)
-- 在 push 到 main 或 master 分支时触发构建
+- 在. push 到 main 或 master 分支时触发构建
 
 ### 本地构建
 
